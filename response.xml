@@ -1,0 +1,30 @@
+<TXTpaic>
+  <TXTpaicResponse>
+    <head>
+      <transRefId>1234567890</transRefId>
+      <transType>001</transType>
+      <transExeDate>2024-10-23 12:31:58</transExeDate>
+      <message>请核实数据。当投保人为企业时证件类型要为6！</message>
+      <status>-1</status>
+      <statusCode>-602</statusCode>
+    </head>
+    <body>
+      <policy>
+        <planCode></planCode>
+        <productCode></productCode>
+        <quotationNo></quotationNo>
+        <currencyRate></currencyRate>
+        <totalNetPremium></totalNetPremium>
+        <addedValueTax></addedValueTax>
+        <totalActualPremium></totalActualPremium>
+      </policy>
+      <plans>
+        <plan>
+          <planNo></planNo>
+          <planName></planName>
+          <insurances></insurances>
+        </plan>
+      </plans>
+    </body>
+  </TXTpaicResponse>
+</TXTpaic>
