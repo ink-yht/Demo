@@ -9,10 +9,8 @@ import (
 	"golang.org/x/text/encoding/simplifiedchinese"
 	"golang.org/x/text/transform"
 	"io"
-	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
 	"strings"
 )
 
@@ -62,25 +60,27 @@ func (svc *Service) SendRequest() (*response.TXTpaic, error) {
 		log.Fatalf("解析 xml 数据失败: %v", err)
 	}
 
-	xmlresponse, err := xml.MarshalIndent(responseStruct, "", "  ")
-	if err != nil {
-		log.Fatalf("编码失败: %v", err)
-	}
+	// 下面代码是将响应写到xml文件中，如不使用，则写到结构体中
 
-	// 检查response.xml文件是否存在
-	if _, err := os.Stat("response.xml"); os.IsNotExist(err) {
-		// 文件不存在，创建文件
-		_, err := os.Create("response.xml")
-		if err != nil {
-			log.Fatalf("Failed to create file: %v", err)
-		}
-	}
-
-	// 将XML数据写入文件
-	err = ioutil.WriteFile("response.xml", xmlresponse, 0644)
-	if err != nil {
-		log.Fatalf("Failed to write XML to file: %v", err)
-	}
+	//xmlresponse, err := xml.MarshalIndent(responseStruct, "", "  ")
+	//if err != nil {
+	//	log.Fatalf("编码失败: %v", err)
+	//}
+	//
+	//// 检查response.xml文件是否存在
+	//if _, err := os.Stat("response.xml"); os.IsNotExist(err) {
+	//	// 文件不存在，创建文件
+	//	_, err := os.Create("response.xml")
+	//	if err != nil {
+	//		log.Fatalf("Failed to create file: %v", err)
+	//	}
+	//}
+	//
+	//// 将XML数据写入文件
+	//err = ioutil.WriteFile("response.xml", xmlresponse, 0644)
+	//if err != nil {
+	//	log.Fatalf("Failed to write XML to file: %v", err)
+	//}
 
 	log.Printf("解析成功: %+v", responseStruct)
 	return &responseStruct, nil
